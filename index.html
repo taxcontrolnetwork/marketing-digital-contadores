@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="description" content="Workshop presencial de Marketing Digital para Contadores y Auditores. Sábado 31 de octubre en vivo, con certificado, materiales y grabaciones por un año.">
+  <title>Workshop Marketing Digital para Contadores y Auditores | AUDICLUB365</title>
+
+  <!-- Tailwind CSS por CDN; para producción con tráfico alto, conviene compilarlo. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0d0d0d",
+            panel: "#151515",
+            gold: "#ffcc00",
+            muted: "#a3a3a3"
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --gold: #ffcc00;
+      --ink: #0d0d0d;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); }
+    ::selection { background: var(--gold); color: #111; }
+
+    .announcement {
+      background: linear-gradient(90deg, #f4b900, #ffda45 50%, #f4b900);
+      color: #111;
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(ellipse at 50% 10%, rgba(255, 204, 0, .11), transparent 48%),
+        radial-gradient(ellipse at 80% 65%, rgba(255, 204, 0, .045), transparent 42%);
+    }
+
+    .locked-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: max-height 1.2s ease, opacity .75s ease, visibility .75s ease;
+    }
+
+    .locked-content.is-unlocked {
+      max-height: 12000px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .video-frame {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .03) 35%, rgba(0, 0, 0, .75)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=85") center 43% / cover;
+    }
+
+    .video-progress {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+
+    .js-motion .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .js-motion .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .js-motion .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-white antialiased">
+  <div class="announcement sticky top-0 z-40 px-3 py-2.5 text-center text-[10px] font-extrabold tracking-[.12em] sm:text-xs">
+    <i class="fa-solid fa-bolt mr-1.5" aria-hidden="true"></i>
+    WORKSHOP PRESENCIAL · SÁBADO 31 DE OCTUBRE · 16:00 A 22:00 · PREVENTA 70 Bs
+  </div>
+
+  <main>
+    <section class="hero-glow px-5 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20">
+      <div class="mx-auto max-w-5xl text-center">
+        <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2 text-[10px] font-bold uppercase tracking-[.18em] text-zinc-300 sm:text-xs">
+          <span class="h-2 w-2 rounded-full bg-gold shadow-[0_0_12px_#ffcc00]"></span>
+          AUDICLUB365 · Workshop presencial
+        </div>
+
+        <h1 class="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-[-.045em] sm:text-6xl lg:text-7xl">
+          Marketing Digital <span class="text-gold">para Contadores y Auditores</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-xl sm:leading-8">
+          Un día intensivo, 100% práctico y en vivo. Aprendé a crear campañas digitales para tus servicios contables y de auditoría.
+        </p>
+
+        <div class="mx-auto mt-10 max-w-4xl">
+          <div class="video-frame group relative aspect-video overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_90px_rgba(0,0,0,.55)] sm:rounded-3xl">
+            <!-- Reemplazá reto2k-video.mp4 por el video final y mantené el archivo junto a este HTML. -->
+            <video id="intro-video" class="absolute inset-0 h-full w-full object-cover" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=85" aria-label="Video de presentación de la formación presencial">
+              <source src="reto2k-video.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video. Podés habilitar el contenido con el botón de accesibilidad debajo.
+            </video>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-4 text-left sm:p-7">
+              <div class="max-w-[75%]">
+                <span class="mb-2 inline-flex rounded bg-gold px-2 py-1 text-[9px] font-extrabold uppercase tracking-[.14em] text-black">Programa presencial</span>
+                <p class="text-sm font-semibold text-white sm:text-lg">Conocé el workshop y reservá tu lugar</p>
+              </div>
+              <span class="hidden rounded-md border border-white/20 bg-black/50 px-2.5 py-1.5 text-xs font-semibold text-white sm:inline-flex">
+                <i class="fa-solid fa-play mr-2 text-gold" aria-hidden="true"></i>Reproducir
+              </span>
+            </div>
+          </div>
+          <div class="mx-auto mt-4 flex max-w-4xl items-center gap-3 text-left" aria-live="polite">
+            <span class="shrink-0 text-[10px] font-bold uppercase tracking-[.12em] text-zinc-500">Tu recorrido</span>
+            <div
+              id="video-progress-track"
+              class="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10"
+              role="progressbar"
+              aria-label="Progreso del video de presentación"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="0% visto"
+            >
+              <div id="video-progress-bar" class="video-progress h-full w-full rounded-full bg-gold"></div>
+            </div>
+            <span id="video-progress-label" class="w-9 text-right text-[10px] font-bold tabular-nums text-zinc-500">0%</span>
+          </div>
+          <p class="mt-5 animate-pulse text-xs font-extrabold leading-5 tracking-[.12em] text-gold sm:text-sm">
+            <i class="fa-solid fa-lock mr-2" aria-hidden="true"></i>
+            MIRÁ EL VIDEO HASTA EL FINAL PARA VER EL TEMARIO, LOS PRECIOS Y TODA LA INFORMACIÓN DEL WORKSHOP.
+          </p>
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <button id="replay-video" type="button" class="hidden rounded-full border border-gold/50 px-4 py-2 text-xs font-bold text-gold transition hover:bg-gold hover:text-black focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ink">
+              <i class="fa-solid fa-rotate-left mr-1.5" aria-hidden="true"></i>Volver a ver el video
+            </button>
+            <button id="show-details" type="button" class="hidden rounded-full bg-gold px-4 py-2 text-xs font-extrabold text-black transition hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ink" aria-controls="locked-content">
+              Ver toda la información <i class="fa-solid fa-arrow-down ml-1.5" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p id="video-playback-status" class="mt-3 hidden text-xs font-semibold text-red-300" role="status" aria-live="polite"></p>
+          <button id="manual-unlock" type="button" class="mt-4 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-zinc-300 transition hover:border-gold/60 hover:text-white focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ink" aria-controls="locked-content">
+            <i class="fa-solid fa-universal-access mr-1.5 text-gold" aria-hidden="true"></i>
+            ¿No podés reproducir el video? Mostrar información
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- La información se habilita al finalizar el video o mediante el control de accesibilidad. -->
+    <div id="locked-content" class="locked-content" aria-hidden="true" inert>
+      <nav class="sticky top-[38px] z-30 border-b border-white/10 bg-[#0d0d0d]/90 px-4 py-3 backdrop-blur-xl sm:px-8" aria-label="Navegación principal">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <a href="#programa" class="hidden shrink-0 items-center gap-2 text-xs font-extrabold tracking-wide text-white sm:inline-flex">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-gold text-black"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+            AUDICLUB365 <span class="font-medium text-zinc-500">· Workshop presencial</span>
+          </a>
+          <div class="flex min-w-0 flex-1 items-center justify-start gap-5 overflow-x-auto text-xs font-semibold text-zinc-400 sm:flex-none sm:justify-end sm:gap-7">
+            <a class="whitespace-nowrap transition hover:text-gold" href="#programa">El programa</a>
+            <a class="whitespace-nowrap transition hover:text-gold" href="#workshop">Workshop</a>
+            <a class="whitespace-nowrap transition hover:text-gold" href="#incluye">¿Qué incluye?</a>
+            <a class="whitespace-nowrap rounded-full bg-gold px-4 py-2 font-extrabold text-black transition hover:bg-yellow-300" href="#inscripcion">Inscribirme <i class="fa-solid fa-arrow-right ml-1" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </nav>
+
+      <section id="programa" class="scroll-mt-24 border-t border-white/[.06] px-5 py-16 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center">
+            <span class="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[.08] px-4 py-2 text-[10px] font-extrabold tracking-[.16em] text-gold sm:text-xs">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              WORKSHOP PRESENCIAL · AUDICLUB365
+            </span>
+            <h2 class="mx-auto mt-6 max-w-3xl text-3xl font-extrabold tracking-[-.035em] sm:text-5xl">Marketing Digital para Contadores y Auditores</h2>
+            <p class="mx-auto mt-4 max-w-2xl leading-7 text-zinc-400">
+              Una jornada práctica para que contadores y auditores aprendan a promocionar sus servicios con estrategia, contenido e inteligencia artificial.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-4 md:grid-cols-3">
+            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+              <h3 class="text-lg font-bold">Auditoría y objetivos SMART</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Analizá a la competencia y definí objetivos claros para tus campañas contables.</p>
+            </article>
+            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-list-ol" aria-hidden="true"></i></div>
+              <h3 class="text-lg font-bold">Buyer Persona y contenido</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Identificá a tus clientes ideales y prepará contenido para llegar a ellos.</p>
+            </article>
+            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></div>
+              <h3 class="text-lg font-bold">Meta Ads con IA</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Creá campañas en Facebook y Meta Ads con Andrómeda, la IA de Meta.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workshop" class="scroll-mt-24 px-5 pb-16 sm:px-8 sm:pb-24">
+        <div class="mx-auto grid max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-[#141414] lg:grid-cols-[.85fr_1.15fr]">
+          <div class="relative flex min-h-64 flex-col justify-between overflow-hidden bg-gold p-7 text-black sm:p-10">
+            <div class="absolute -right-10 -top-10 h-52 w-52 rounded-full border-[35px] border-black/[.06]"></div>
+            <span class="relative text-xs font-extrabold uppercase tracking-[.16em]">Formación especializada</span>
+            <div class="relative mt-10">
+              <i class="fa-solid fa-calculator text-4xl" aria-hidden="true"></i>
+              <p class="mt-5 text-sm font-bold uppercase tracking-[.1em]">Instructor · M.Sc. Waldo Villegas</p>
+              <p class="mt-2 text-3xl font-black leading-tight">Un día intensivo, 100% práctico y en vivo</p>
+            </div>
+            <div class="relative mt-8 border-t border-black/20 pt-5 text-sm font-bold">
+              <i class="fa-regular fa-calendar mr-2" aria-hidden="true"></i>Sábado 31 de octubre de 2026
+              <span class="mx-2 opacity-40">·</span><i class="fa-regular fa-clock mr-2" aria-hidden="true"></i>16:00 a 22:00
+            </div>
+          </div>
+          <div class="p-7 sm:p-10">
+            <p class="text-xs font-extrabold uppercase tracking-[.16em] text-gold">Contenido clave</p>
+            <h2 class="mt-3 text-2xl font-extrabold leading-tight sm:text-3xl">Llevá tus servicios contables a más clientes</h2>
+            <p class="mt-3 text-sm leading-6 text-zinc-400">Aprendé herramientas digitales que podés aplicar a tu marca profesional y a tus servicios.</p>
+            <ul class="mt-7 space-y-4 text-sm leading-6 text-zinc-300">
+              <li class="flex gap-3"><i class="fa-solid fa-check mt-1 text-gold" aria-hidden="true"></i><span>Auditoría de la competencia y elaboración del objetivo SMART.</span></li>
+              <li class="flex gap-3"><i class="fa-solid fa-check mt-1 text-gold" aria-hidden="true"></i><span>Creación del Buyer Persona para servicios contables y auditorías.</span></li>
+              <li class="flex gap-3"><i class="fa-solid fa-check mt-1 text-gold" aria-hidden="true"></i><span>Creación de una Fan Page en Facebook y cuenta publicitaria en Meta Ads.</span></li>
+              <li class="flex gap-3"><i class="fa-solid fa-check mt-1 text-gold" aria-hidden="true"></i><span>Diseño de imágenes publicitarias con Inteligencia Artificial.</span></li>
+              <li class="flex gap-3"><i class="fa-solid fa-check mt-1 text-gold" aria-hidden="true"></i><span>Campañas de alto rendimiento en Meta Ads con Andrómeda, la IA de Meta.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="incluye" class="scroll-mt-24 border-y border-white/[.06] bg-[#101010] px-5 py-16 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-6xl">
+          <div class="text-center">
+            <span class="text-xs font-extrabold uppercase tracking-[.16em] text-gold">Tu inscripción incluye</span>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-[-.035em] sm:text-4xl">Todo para aprender y ponerlo en práctica.</h2>
+          </div>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-2xl border border-white/10 bg-panel p-6">
+              <i class="fa-solid fa-certificate text-2xl text-gold" aria-hidden="true"></i>
+              <h3 class="mt-4 font-bold">Certificado digital</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Certificado de participación incluido.</p>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-panel p-6">
+              <i class="fa-solid fa-book-open text-2xl text-gold" aria-hidden="true"></i>
+              <h3 class="mt-4 font-bold">Material de apoyo</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Recursos para acompañar lo aprendido durante el workshop.</p>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-panel p-6">
+              <i class="fa-solid fa-video text-2xl text-gold" aria-hidden="true"></i>
+              <h3 class="mt-4 font-bold">Grabaciones por 1 año</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Volvé a consultar las sesiones durante un año.</p>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-panel p-6">
+              <i class="fa-solid fa-database text-2xl text-gold" aria-hidden="true"></i>
+              <h3 class="mt-4 font-bold">Bases de datos opcionales</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">BD 01 · 37.000 contactos: 300 Bs<br>BD 02 · 54.300 contactos: 400 Bs<br>Combo: 500 Bs</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="inscripcion" class="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-24">
+        <div class="mx-auto max-w-4xl rounded-3xl border border-gold/25 bg-[radial-gradient(ellipse_at_top,rgba(255,204,0,.09),transparent_55%),#141414] p-7 text-center sm:p-12">
+          <span class="inline-flex items-center gap-2 rounded-full bg-gold/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[.12em] text-gold">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+          Precio de preventa hasta el 30 de octubre
+          </span>
+          <h2 class="mt-6 text-3xl font-extrabold tracking-[-.035em] sm:text-5xl">Reservá tu lugar en el workshop.</h2>
+          <p class="mt-3 text-sm font-extrabold uppercase tracking-[.1em] text-gold">Sábado 31 de octubre · 16:00 a 22:00</p>
+          <p class="mt-2 text-sm text-zinc-400">Marketing Digital para Contadores y Auditores · AUDICLUB365.</p>
+
+          <div class="mx-auto mt-8 grid max-w-2xl gap-3 text-left sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <p class="text-xs font-bold uppercase tracking-[.12em] text-zinc-500">Precio regular</p>
+              <p class="mt-2 text-xl font-bold text-zinc-400 line-through">100 Bs</p>
+              <p class="mt-3 text-sm text-zinc-400">Precio del workshop</p>
+            </div>
+            <div class="rounded-2xl border border-gold/40 bg-gold/[.07] p-5">
+              <p class="text-xs font-bold uppercase tracking-[.12em] text-gold">Precio de preventa</p>
+              <p class="mt-2 text-4xl font-black tracking-[-.05em] text-gold">70 <span class="text-xl">Bs</span></p>
+              <p class="mt-2 text-sm leading-5 text-zinc-300">Disponible hasta el 30 de octubre.</p>
+            </div>
+          </div>
+
+          <div class="mx-auto mt-5 max-w-2xl rounded-2xl border border-white/10 bg-black/20 p-5 text-left">
+            <p class="flex gap-3 text-sm leading-6 text-zinc-300">
+              <i class="fa-solid fa-user-tie mt-1 text-gold" aria-hidden="true"></i>
+              <span>Instructor: <strong class="text-white">M.Sc. Waldo Villegas</strong></span>
+            </p>
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <p class="text-xs font-extrabold uppercase tracking-[.12em] text-gold">Una jornada intensiva · 6 horas en vivo</p>
+              <ul class="mt-3 space-y-2 text-sm text-zinc-300">
+                <li><i class="fa-regular fa-calendar mr-2 text-gold" aria-hidden="true"></i>Sábado 31 de octubre de 2026</li>
+                <li><i class="fa-regular fa-clock mr-2 text-gold" aria-hidden="true"></i>16:00 a 22:00</li>
+                <li><i class="fa-solid fa-location-dot mr-2 text-gold" aria-hidden="true"></i>Modalidad presencial · Santa Cruz</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mx-auto mt-4 max-w-2xl rounded-2xl border border-white/10 bg-black/20 p-5 text-left sm:flex sm:items-center sm:gap-6">
+            <img src="payment-qr.png" alt="Código QR para realizar el pago del workshop" class="mx-auto h-36 w-36 rounded-lg bg-white p-1 sm:mx-0">
+            <p class="mt-4 text-sm leading-6 text-zinc-300 sm:mt-0">Escaneá el código QR para realizar el pago de tu inscripción. Si necesitás ayuda, escribinos por WhatsApp.</p>
+          </div>
+          <a href="https://wa.me/59175345624?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Workshop%20de%20Marketing%20Digital%20para%20Contadores%20y%20Auditores." target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-4 text-sm font-extrabold text-black shadow-[0_8px_30px_rgba(255,204,0,.18)] transition hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink sm:w-auto sm:min-w-[360px]">
+            <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i>
+            Reservar por WhatsApp · 591 75345624
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a href="https://masterclassboliviaplus.com/virtual" target="_blank" rel="noopener noreferrer" class="mt-4 block text-sm font-semibold text-gold underline underline-offset-4 hover:text-yellow-300">masterclassboliviaplus.com/virtual</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/[.06] px-5 py-7 text-center text-xs text-zinc-600">
+    AUDICLUB365 · Workshop Marketing Digital para Contadores y Auditores · Santa Cruz de la Sierra
+  </footer>
+
+  <script>
+    (() => {
+      const video = document.getElementById("intro-video");
+      const lockedContent = document.getElementById("locked-content");
+      const unlockButton = document.getElementById("manual-unlock");
+      const progressTrack = document.getElementById("video-progress-track");
+      const progressBar = document.getElementById("video-progress-bar");
+      const progressLabel = document.getElementById("video-progress-label");
+      const replayButton = document.getElementById("replay-video");
+      const detailsButton = document.getElementById("show-details");
+      const playbackStatus = document.getElementById("video-playback-status");
+      const revealObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 })
+        : null;
+
+      function updateVideoProgress() {
+        const percentage = Number.isFinite(video.duration) && video.duration > 0
+          ? Math.min(100, Math.round((video.currentTime / video.duration) * 100))
+          : 0;
+        progressTrack.setAttribute("aria-valuenow", String(percentage));
+        progressTrack.setAttribute("aria-valuetext", `${percentage}% visto`);
+        progressBar.style.transform = `scaleX(${percentage / 100})`;
+        progressLabel.textContent = `${percentage}%`;
+      }
+
+      function unlockPage() {
+        if (lockedContent.classList.contains("is-unlocked")) return;
+        lockedContent.inert = false;
+        lockedContent.removeAttribute("aria-hidden");
+        lockedContent.classList.add("is-unlocked");
+        document.documentElement.classList.add("js-motion");
+        const revealElements = lockedContent.querySelectorAll("section, section article");
+        if (revealObserver) {
+          revealElements.forEach((element) => {
+            element.classList.add("reveal");
+            revealObserver.observe(element);
+          });
+        } else {
+          revealElements.forEach((element) => element.classList.add("is-visible"));
+        }
+        unlockButton.hidden = true;
+        detailsButton.classList.remove("hidden");
+      }
+
+      function replayVideo() {
+        video.currentTime = 0;
+        video.play().catch((error) => {
+          console.error("No se pudo reproducir el video nuevamente.", error);
+          playbackStatus.textContent = "No se pudo reproducir el video. Verificá que el archivo reto2k-video.mp4 esté junto a esta página.";
+          playbackStatus.classList.remove("hidden");
+        });
+      }
+
+      function showDetails() {
+        document.getElementById("programa").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      video.addEventListener("timeupdate", updateVideoProgress);
+      video.addEventListener("loadedmetadata", updateVideoProgress);
+      video.addEventListener("ended", updateVideoProgress);
+      video.addEventListener("playing", () => {
+        playbackStatus.classList.add("hidden");
+        playbackStatus.textContent = "";
+      });
+      video.addEventListener("ended", () => {
+        if (!video.ended || !Number.isFinite(video.duration) || video.duration <= 0) return;
+        updateVideoProgress();
+        replayButton.classList.remove("hidden");
+        unlockPage();
+      });
+      unlockButton.addEventListener("click", unlockPage);
+      replayButton.addEventListener("click", replayVideo);
+      detailsButton.addEventListener("click", showDetails);
+    })();
+  </script>
+</body>
+</html>
