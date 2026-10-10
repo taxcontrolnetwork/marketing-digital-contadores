@@ -79,6 +79,23 @@
       transition: transform .25s ease;
     }
 
+    .whatsapp-cta {
+      background: #25d366;
+      color: #062b16;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, .22);
+      animation: whatsapp-bob 2.4s ease-in-out infinite;
+    }
+
+    .whatsapp-cta:hover {
+      background: #20bd5a;
+      box-shadow: 0 10px 34px rgba(37, 211, 102, .32);
+    }
+
+    @keyframes whatsapp-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
     .js-motion .reveal {
       opacity: 0;
       transform: translateY(18px);
@@ -125,8 +142,7 @@
         <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-xl sm:leading-8">
           6 horas intensivas, 100% práctico y en vivo. Aprendé a crear campañas digitales para tus servicios contables y de auditoría.
         </p>
-
-        <div class="mx-auto mt-10 max-w-4xl">
+          <div class="mx-auto mt-10 max-w-4xl">
           <div class="video-frame group relative aspect-video overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_90px_rgba(0,0,0,.55)] sm:rounded-3xl">
             <!-- Reemplazá reto2k-video.mp4 por el video final y mantené el archivo junto a este HTML. -->
             <video id="intro-video" class="absolute inset-0 h-full w-full object-cover" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=85" aria-label="Video de presentación de la formación presencial">
@@ -226,6 +242,13 @@
               <h3 class="text-lg font-bold">Meta Ads con IA</h3>
               <p class="mt-2 text-sm leading-6 text-zinc-400">Creá campañas en Facebook y Meta Ads con Andrómeda, la IA de Meta.</p>
             </article>
+          </div>
+          <div class="mt-10 text-center">
+            <a href="https://wa.me/59175345624?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Workshop%20de%20Marketing%20Digital%20para%20Contadores%20y%20Auditores." target="_blank" rel="noopener noreferrer" class="whatsapp-cta inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-extrabold transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink sm:w-auto sm:min-w-[360px]">
+              <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i>
+              Reservar por WhatsApp · 591 75345624
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -329,11 +352,8 @@
             </div>
           </div>
 
-          <div class="mx-auto mt-4 max-w-2xl rounded-2xl border border-white/10 bg-black/20 p-5 text-left sm:flex sm:items-center sm:gap-6">
-            <img src="payment-qr.png" alt="Código QR para realizar el pago del workshop" class="mx-auto h-36 w-36 rounded-lg bg-white p-1 sm:mx-0">
-            <p class="mt-4 text-sm leading-6 text-zinc-300 sm:mt-0">Escaneá el código QR para realizar el pago de tu inscripción. Si necesitás ayuda, escribinos por WhatsApp.</p>
-          </div>
-          <a href="https://wa.me/59175345624?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Workshop%20de%20Marketing%20Digital%20para%20Contadores%20y%20Auditores." target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-4 text-sm font-extrabold text-black shadow-[0_8px_30px_rgba(255,204,0,.18)] transition hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink sm:w-auto sm:min-w-[360px]">
+          <p class="mx-auto mt-8 max-w-xl text-sm leading-6 text-zinc-300">Escribinos por WhatsApp para reservar tu lugar y recibir los datos de pago.</p>
+          <a href="https://wa.me/59175345624?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Workshop%20de%20Marketing%20Digital%20para%20Contadores%20y%20Auditores." target="_blank" rel="noopener noreferrer" class="whatsapp-cta mt-4 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-extrabold transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink sm:w-auto sm:min-w-[360px]">
             <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i>
             Reservar por WhatsApp · 591 75345624
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
