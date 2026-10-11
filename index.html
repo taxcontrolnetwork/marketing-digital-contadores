@@ -83,7 +83,7 @@
       background: #25d366;
       color: #062b16;
       box-shadow: 0 8px 30px rgba(37, 211, 102, .22);
-      animation: whatsapp-bob 2.4s ease-in-out infinite;
+      animation: whatsapp-wheel .7s ease-in-out infinite alternate;
     }
 
     .whatsapp-cta:hover {
@@ -91,9 +91,9 @@
       box-shadow: 0 10px 34px rgba(37, 211, 102, .32);
     }
 
-    @keyframes whatsapp-bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+    @keyframes whatsapp-wheel {
+      from { transform: rotate(-12deg); }
+      to { transform: rotate(12deg); }
     }
 
     .js-motion .reveal {
