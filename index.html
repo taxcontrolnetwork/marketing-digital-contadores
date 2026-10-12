@@ -83,7 +83,8 @@
       background: #25d366;
       color: #062b16;
       box-shadow: 0 8px 30px rgba(37, 211, 102, .22);
-      animation: whatsapp-wheel .7s ease-in-out infinite alternate;
+      transform-origin: center;
+      animation: whatsapp-boom 3s ease-in-out infinite;
     }
 
     .whatsapp-cta:hover {
@@ -91,9 +92,15 @@
       box-shadow: 0 10px 34px rgba(37, 211, 102, .32);
     }
 
-    @keyframes whatsapp-wheel {
-      from { transform: rotate(-12deg); }
-      to { transform: rotate(12deg); }
+    @keyframes whatsapp-boom {
+      0% { scale: .65; translate: 0 0; rotate: 0deg; }
+      10% { scale: 1.12; translate: 0 0; rotate: 0deg; }
+      18% { scale: .96; translate: 0 0; rotate: 0deg; }
+      25%, 35% { scale: 1; translate: 0 0; rotate: 0deg; }
+      42% { translate: -3px 0; rotate: -1deg; }
+      49% { translate: 3px 0; rotate: 1deg; }
+      56% { translate: -2px 0; rotate: -.7deg; }
+      63%, 100% { scale: 1; translate: 0 0; rotate: 0deg; }
     }
 
     .js-motion .reveal {
@@ -226,22 +233,27 @@
             </p>
           </div>
 
-          <div class="mt-12 grid gap-4 md:grid-cols-3">
-            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
-              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
-              <h3 class="text-lg font-bold">Auditoría y objetivos SMART</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Analizá a la competencia y definí objetivos claros para tus campañas contables.</p>
-            </article>
-            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
-              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-list-ol" aria-hidden="true"></i></div>
-              <h3 class="text-lg font-bold">Buyer Persona y contenido</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Identificá a tus clientes ideales y prepará contenido para llegar a ellos.</p>
-            </article>
-            <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
-              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></div>
-              <h3 class="text-lg font-bold">Meta Ads con IA</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Creá campañas en Facebook y Meta Ads con Andrómeda, la IA de Meta.</p>
-            </article>
+          <div class="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_.8fr]">
+            <div class="grid gap-4 md:grid-cols-2">
+              <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+                <h3 class="text-lg font-bold">Auditoría y objetivos SMART</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-400">Analizá a la competencia y definí objetivos claros para tus campañas contables.</p>
+              </article>
+              <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-list-ol" aria-hidden="true"></i></div>
+                <h3 class="text-lg font-bold">Buyer Persona y contenido</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-400">Identificá a tus clientes ideales y prepará contenido para llegar a ellos.</p>
+              </article>
+              <article class="rounded-2xl border border-gold/20 bg-panel p-6 transition hover:-translate-y-1 hover:border-gold/50 md:col-span-2">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-xl text-gold"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></div>
+                <h3 class="text-lg font-bold">Meta Ads con IA</h3>
+                <p class="mt-2 text-sm leading-6 text-zinc-400">Creá campañas en Facebook y Meta Ads con Andrómeda, la IA de Meta.</p>
+              </article>
+            </div>
+            <figure class="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-gold/30 bg-panel shadow-[0_24px_70px_rgba(0,0,0,.4)]">
+              <img src="assets/afiche-workshop-marketing.png" alt="Afiche del workshop: Meta Ads e inteligencia artificial para servicios contables, con preventa de 70 bolivianos." class="h-auto w-full" loading="lazy" decoding="async">
+            </figure>
           </div>
           <div class="mt-10 text-center">
             <a href="https://wa.me/59175345624?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Workshop%20de%20Marketing%20Digital%20para%20Contadores%20y%20Auditores." target="_blank" rel="noopener noreferrer" class="whatsapp-cta inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-extrabold transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-ink sm:w-auto sm:min-w-[360px]">
@@ -281,6 +293,9 @@
             </ul>
           </div>
         </div>
+        <figure class="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border border-gold/30 bg-panel shadow-[0_24px_70px_rgba(0,0,0,.4)]">
+          <img src="assets/temario-workshop.png" alt="Temario práctico en seis horas: auditoría y objetivos SMART, Buyer Persona contable, Fan Page y Meta Ads, y campañas con inteligencia artificial." class="h-auto w-full" loading="lazy" decoding="async">
+        </figure>
       </section>
 
       <section id="incluye" class="scroll-mt-24 border-y border-white/[.06] bg-[#101010] px-5 py-16 sm:px-8 sm:py-24">
@@ -324,31 +339,38 @@
           <p class="mt-3 text-sm font-extrabold uppercase tracking-[.1em] text-gold">Sábado 31 de octubre · 16:00 a 22:00</p>
           <p class="mt-2 text-sm text-zinc-400">Marketing Digital para Contadores y Auditores · AUDICLUB365.</p>
 
-          <div class="mx-auto mt-8 grid max-w-2xl gap-3 text-left sm:grid-cols-2">
-            <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
-              <p class="text-xs font-bold uppercase tracking-[.12em] text-zinc-500">Precio regular</p>
-              <p class="mt-2 text-xl font-bold text-zinc-400 line-through">100 Bs</p>
-              <p class="mt-3 text-sm text-zinc-400">Precio del workshop</p>
-            </div>
-            <div class="rounded-2xl border border-gold/40 bg-gold/[.07] p-5">
-              <p class="text-xs font-bold uppercase tracking-[.12em] text-gold">Precio de preventa</p>
-              <p class="mt-2 text-4xl font-black tracking-[-.05em] text-gold">70 <span class="text-xl">Bs</span></p>
-              <p class="mt-2 text-sm leading-5 text-zinc-300">Disponible hasta el 30 de octubre.</p>
-            </div>
-          </div>
+          <div class="mx-auto mt-8 grid max-w-4xl items-center gap-8 text-left lg:grid-cols-[.8fr_1.2fr]">
+            <figure class="mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-gold/30 bg-panel shadow-[0_24px_70px_rgba(0,0,0,.4)]">
+              <img src="assets/preventa-workshop.png" alt="Afiche de preventa del workshop en vivo y práctico: certificado digital, grabaciones por un año y precio de 70 bolivianos." class="h-auto w-full" loading="lazy" decoding="async">
+            </figure>
+            <div>
+              <div class="grid gap-3 sm:grid-cols-2">
+                <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+                  <p class="text-xs font-bold uppercase tracking-[.12em] text-zinc-500">Precio regular</p>
+                  <p class="mt-2 text-xl font-bold text-zinc-400 line-through">100 Bs</p>
+                  <p class="mt-3 text-sm text-zinc-400">Precio del workshop</p>
+                </div>
+                <div class="rounded-2xl border border-gold/40 bg-gold/[.07] p-5">
+                  <p class="text-xs font-bold uppercase tracking-[.12em] text-gold">Precio de preventa</p>
+                  <p class="mt-2 text-4xl font-black tracking-[-.05em] text-gold">70 <span class="text-xl">Bs</span></p>
+                  <p class="mt-2 text-sm leading-5 text-zinc-300">Disponible hasta el 30 de octubre.</p>
+                </div>
+              </div>
 
-          <div class="mx-auto mt-5 max-w-2xl rounded-2xl border border-white/10 bg-black/20 p-5 text-left">
-            <p class="flex gap-3 text-sm leading-6 text-zinc-300">
-              <i class="fa-solid fa-user-tie mt-1 text-gold" aria-hidden="true"></i>
-              <span>Instructor: <strong class="text-white">M.Sc. Waldo Villegas</strong></span>
-            </p>
-            <div class="mt-4 border-t border-white/10 pt-4">
-              <p class="text-xs font-extrabold uppercase tracking-[.12em] text-gold">Una jornada intensiva · 6 horas en vivo</p>
-              <ul class="mt-3 space-y-2 text-sm text-zinc-300">
-                <li><i class="fa-regular fa-calendar mr-2 text-gold" aria-hidden="true"></i>Sábado 31 de octubre de 2026</li>
-                <li><i class="fa-regular fa-clock mr-2 text-gold" aria-hidden="true"></i>16:00 a 22:00</li>
-                <li><i class="fa-solid fa-location-dot mr-2 text-gold" aria-hidden="true"></i>Modalidad presencial · Santa Cruz</li>
-              </ul>
+              <div class="mx-auto mt-5 max-w-2xl rounded-2xl border border-white/10 bg-black/20 p-5">
+                <p class="flex gap-3 text-sm leading-6 text-zinc-300">
+                  <i class="fa-solid fa-user-tie mt-1 text-gold" aria-hidden="true"></i>
+                  <span>Instructor: <strong class="text-white">M.Sc. Waldo Villegas</strong></span>
+                </p>
+                <div class="mt-4 border-t border-white/10 pt-4">
+                  <p class="text-xs font-extrabold uppercase tracking-[.12em] text-gold">Una jornada intensiva · 6 horas en vivo</p>
+                  <ul class="mt-3 space-y-2 text-sm text-zinc-300">
+                    <li><i class="fa-regular fa-calendar mr-2 text-gold" aria-hidden="true"></i>Sábado 31 de octubre de 2026</li>
+                    <li><i class="fa-regular fa-clock mr-2 text-gold" aria-hidden="true"></i>16:00 a 22:00</li>
+                    <li><i class="fa-solid fa-location-dot mr-2 text-gold" aria-hidden="true"></i>Modalidad presencial · Santa Cruz</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
